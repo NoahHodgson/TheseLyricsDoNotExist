@@ -6,14 +6,12 @@ import { TitleBar } from './components/TitleBar';
 
 function App() {
   const [values, setValues] = useState({artist:"", songTitle: "", songLyrics:""})
-  
-  function setArtist(){
 
-  }
+  function setArtist(artist:string){setValues({...values, artist:artist})}
 
-  function setSong(){}
+  function setSong(songLyr:string, songTitle:string){setValues({...values, songTitle: songTitle, songLyrics:songLyr})}
 
-  function clearAll(){}
+  function clearAll(){setValues({...values, artist:"", songTitle: "", songLyrics:""})}
 
   return ( 
     <div className="App">
@@ -28,7 +26,8 @@ function App() {
           <Button size="sm" variant="outline-secondary" id="button" style={{}}>
             <Image src="https://img.icons8.com/ios-filled/344/search--v2.png" alt="search" style={{ width: "60px", height: "auto" }} />
           </Button>
-        </InputGroup> : <></>}
+        </InputGroup> : 
+        <></>}
       </Container>
     </div>
   );
