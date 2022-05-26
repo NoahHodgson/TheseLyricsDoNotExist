@@ -1,23 +1,35 @@
-import React from 'react';
-import { Container, Navbar } from 'react-bootstrap';
+import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
+import { Button, Container, FormControl, InputGroup, Image } from 'react-bootstrap';
 import './App.css';
+import { TitleBar } from './components/TitleBar';
 
 function App() {
-  return (
+  const [values, setValues] = useState({artist:"", songTitle: "", songLyrics:""})
+  
+  function setArtist(){
+
+  }
+
+  function setSong(){}
+
+  function clearAll(){}
+
+  return ( 
     <div className="App">
-      <Navbar expand="lg" variant="dark" style={{ backgroundColor: "#ffff65", width: 'auto' }}>
-        <Container>
-            <Navbar.Brand>
-              <img
-                alt=""
-                src="/assets/title.png"
-                width="100%"
-                height="100%"
-                className="d-inline-block align-top"
-              />{' '}
-            </Navbar.Brand>
-        </Container>
-      </Navbar>
+      <TitleBar/>
+      <br></br>
+      <Container style={{justifyContent:"center"}}>
+        {""===values.artist ? 
+        <InputGroup className="mb-3">
+          <FormControl
+            placeholder="Search for an artist"
+            aria-label="Artist" style={{ marginLeft:"25%", maxWidth: "50%"}}/>
+          <Button size="sm" variant="outline-secondary" id="button" style={{}}>
+            <Image src="https://img.icons8.com/ios-filled/344/search--v2.png" alt="search" style={{ width: "60px", height: "auto" }} />
+          </Button>
+        </InputGroup> : <></>}
+      </Container>
     </div>
   );
 }
